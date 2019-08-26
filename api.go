@@ -41,7 +41,7 @@ func NewAPI(key string, lang string, unit string) (API, error) {
 
 // Gets the current weather for a specific location
 func (api API) Current(location string) (CurrentWeather, error) {
-	result, err := api.makeRequest(endpoints["current"], location)
+	result, err := api.getData(endpoints["current"], location)
 	if err != nil {
 		return CurrentWeather{}, err
 	}
@@ -55,8 +55,28 @@ func (api API) Current(location string) (CurrentWeather, error) {
   return current, nil
 }
 
-// Makes a request to the OpenWeatherMap API
-func (api API) makeRequest(requestUrl string, location string) ([]byte, error) {
+// Gets data from the OpenWeatherMap API
+func (api API) getData(requestUrl string, location string) ([]byte, error) {
+	request, err := api.encodeRequest(requestUrl, location)
+	if err != nil {
+		return []byte{}, err
+	}
+
+	response, err := api.makeRequest(request)
+	if err != nil {
+		return []byte{}, err
+	}
+
+  body, err := ioutil.ReadAll(response.Body)
+	if err != nil {
+		return []byte{}, err
+	}
+
+  return body, nil
+}
+
+// Encodes a ready-to-use request structure from an URL and a location
+func (api API) encodeRequest(requestUrl string, location string) (*http.Request, error) {
 	params := url.Values{}
 	params.Add("APPID", api.key)
 	params.Add("q", location)
@@ -65,27 +85,27 @@ func (api API) makeRequest(requestUrl string, location string) ([]byte, error) {
 
 	req, err := http.NewRequest(http.MethodGet, fmt.Sprint(requestUrl, "?", params.Encode()), nil)
 	if err != nil {
-		return []byte{}, err
+		return &http.Request{}, err
 	}
 
 	req.Header.Add("User-Agent", "goweather")
 
-	res, err := api.client.Do(req)
+	return req, nil
+}
+
+// Makes a request to the OpenWeatherMap API from a request structure
+func (api API) makeRequest(request *http.Request) (*http.Response, error) {
+	response, err := api.client.Do(request)
   if err != nil {
-  	return []byte{}, err
+  	return &http.Response{}, err
 	}
 
-	switch res.StatusCode {
+	switch response.StatusCode {
 	case 401:
-		return []byte{}, errors.New("unauthorized API key")
+		return &http.Response{}, errors.New("unauthorized API key")
 	case 404:
-		return []byte{}, errors.New("unknown location")
+		return &http.Response{}, errors.New("unknown location")
 	}
 
-  body, err := ioutil.ReadAll(res.Body)
-	if err != nil {
-		return []byte{}, err
-	}
-
-  return body, nil
+	return response, nil
 }
