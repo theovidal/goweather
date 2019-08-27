@@ -8,6 +8,8 @@ import (
 	"net/http"
 	"net/url"
 	"time"
+
+	"github.com/exybore/goweather/types"
 )
 
 // The main API
@@ -40,16 +42,16 @@ func NewAPI(key string, lang string, unit string) (API, error) {
 }
 
 // Gets the current weather for a specific location
-func (api API) Current(location string) (CurrentWeather, error) {
+func (api API) Current(location string) (types.Current, error) {
 	result, err := api.getData(endpoints["current"], location)
 	if err != nil {
-		return CurrentWeather{}, err
+		return types.Current{}, err
 	}
 
-  current := CurrentWeather{}
+  current := types.Current{}
   err = json.Unmarshal(result, &current)
   if err != nil {
-  	return CurrentWeather{}, err
+  	return types.Current{}, err
 	}
 
   return current, nil
