@@ -14,9 +14,16 @@ import (
 
 // The main API
 type API struct {
+	// The HTTP client to use to make requests
 	client http.Client
+
+	// The OpenWeatherMap API key
 	key string
+
+	// Lang of the returned data
 	lang string
+
+	// Units of the returned data
 	unit string
 }
 

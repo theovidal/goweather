@@ -1,12 +1,18 @@
+// This package contains all the types associated to the library : weather conditions, cities...
 package types
 
 import "encoding/json"
 
+// Structure representing current weather data
 type Current struct {
+	// The city where the weather applies
 	City       City
+
+	// The actual weather conditions at the moment
 	Conditions WeatherConditions
 }
 
+// Unmarshal the JSON data returned from the API into the structure
 func (current *Current) UnmarshalJSON(raw []byte) error {
  	var data map[string]interface{}
  	if err := json.Unmarshal(raw, &data); err != nil {
