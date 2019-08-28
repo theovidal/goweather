@@ -29,10 +29,10 @@ type API struct {
 
 // Creates a new weather API structure
 func NewAPI(key string, lang string, unit string) (API, error) {
-	if !contains(locales, lang) {
+	if !contains(types.Locales, lang) {
 		return API{}, errors.New(fmt.Sprintf("cannot use %s as lang", lang))
 	}
-	if !contains(units, unit) {
+	if !contains(types.Units, unit) {
 		return API{}, errors.New(fmt.Sprintf("cannot use %s as unit", unit))
 	}
 
@@ -50,7 +50,7 @@ func NewAPI(key string, lang string, unit string) (API, error) {
 
 // Gets the current weather for a specific location
 func (api API) Current(location string) (types.Current, error) {
-	result, err := api.getData(endpoints["current"], location)
+	result, err := api.getData(types.Endpoints["current"], location)
 	if err != nil {
 		return types.Current{}, err
 	}
