@@ -1,4 +1,3 @@
-// This package contains all the types associated to the library : weather conditions, cities...
 package types
 
 // Structure representing a real city and its data
