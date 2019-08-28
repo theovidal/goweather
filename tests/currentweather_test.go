@@ -7,7 +7,7 @@ import (
 
 // Gets the current weather and displays some information about it
 func TestCurrent(t *testing.T) {
-		api, err := goweather.NewAPI("76e8b887c6e2475a670972f7e22460a0", "fr", "metric")
+		api, err := goweather.NewAPI("", "fr", "metric")
 		if err != nil {
 			t.Error("error:", err)
 			return
