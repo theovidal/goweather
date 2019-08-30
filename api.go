@@ -64,6 +64,20 @@ func (api API) Current(location string) (types.Current, error) {
   return current, nil
 }
 
+func (api API) Forecast(location string) (forecast types.Forecast, err error) {
+	result, err := api.getData(types.Endpoints["forecast"], location)
+	if err != nil {
+		return
+	}
+
+  err = json.Unmarshal(result, &forecast)
+  if err != nil {
+  	return
+	}
+
+  return
+}
+
 // Gets data from the OpenWeatherMap API
 func (api API) getData(requestUrl string, location string) ([]byte, error) {
 	request, err := api.encodeRequest(requestUrl, location)
