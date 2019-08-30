@@ -49,19 +49,18 @@ func NewAPI(key string, lang string, unit string) (API, error) {
 }
 
 // Gets the current weather for a specific location
-func (api API) Current(location string) (types.Current, error) {
+func (api API) Current(location string) (current types.Current, err error) {
 	result, err := api.getData(types.Endpoints["current"], location)
 	if err != nil {
-		return types.Current{}, err
+		return
 	}
 
-  current := types.Current{}
   err = json.Unmarshal(result, &current)
   if err != nil {
-  	return types.Current{}, err
+  	return
 	}
 
-  return current, nil
+  return
 }
 
 func (api API) Forecast(location string) (forecast types.Forecast, err error) {

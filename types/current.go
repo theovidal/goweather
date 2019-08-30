@@ -18,7 +18,7 @@ func (current *Current) UnmarshalJSON(raw []byte) error {
  		return err
  	}
 
- 	coord := data["coord"].(map[string]interface{})
+ 	coords := data["coord"].(map[string]interface{})
  	sys := data["sys"].(map[string]interface{})
 
  	current.City = City{
@@ -27,8 +27,8 @@ func (current *Current) UnmarshalJSON(raw []byte) error {
  		Sunrise: sys["sunrise"].(float64),
  		Sunset:  sys["sunset"].(float64),
  		Coordinates: Coordinates{
- 			Longitude: coord["lon"].(float64),
- 			Latitude:  coord["lat"].(float64),
+ 			Longitude: coords["lon"].(float64),
+ 			Latitude:  coords["lat"].(float64),
 		},
  	}
   current.Conditions = ParseWeatherConditions(data)
