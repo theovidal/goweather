@@ -1,6 +1,6 @@
 # goweather
 
-### 🌦 Fetch weather information using Go and the OpenWeatherMap API
+### 🌦 Easily fetch weather information using Go and the OpenWeatherMap API
 
 [![godoc documentation](https://godoc.org/github.com/exybore/goweather?status.svg)](https://godoc.org/github.com/exybore/goweather)
 [![latest github version](https://img.shields.io/github/v/tag/exybore/goweather?sort=semver)](https://github.com/exybore/goweather/releases)

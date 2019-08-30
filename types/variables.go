@@ -9,10 +9,10 @@ var Endpoints = map[string]string{
 	"forecast": ApiUrl + "/data/2.5/forecast",
 }
 
-// Accepted units
+// Accepted units in the API
 var Units = []string{"default", "metric", "imperial"}
 
-// Accepted locales
+// Accepted locales in the API
 var Locales = []string{"ar", "bg", "ca", "cz", "de", "el", "fa", "fi", "fr", "gl", "hr", "hu",
 	"it", "ja", "kr", "la", "lt", "mk", "nl", "pl", "pt", "ro", "ru", "se", "sk", "sl", "es", "tr",
 	"ua", "vi", "zh_cn", "zh_tw", "en"}

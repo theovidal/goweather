@@ -11,10 +11,10 @@ type Forecast struct {
 }
 
 // Unmarshal the JSON data returned from the API into the structure
-func (forecast *Forecast) UnmarshalJSON(raw []byte) error {
+func (forecast *Forecast) UnmarshalJSON(raw []byte) (err error) {
  	var data map[string]interface{}
- 	if err := json.Unmarshal(raw, &data); err != nil {
- 		return err
+ 	if err = json.Unmarshal(raw, &data); err != nil {
+ 		return
  	}
 
  	city := data["city"].(map[string]interface{})
@@ -37,5 +37,5 @@ func (forecast *Forecast) UnmarshalJSON(raw []byte) error {
  		forecast.Conditions = append(forecast.Conditions, ParseWeatherConditions(conditionData))
 	}
 
- 	return nil
+ 	return
 }

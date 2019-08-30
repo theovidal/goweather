@@ -28,24 +28,26 @@ type API struct {
 }
 
 // Creates a new weather API structure
-func NewAPI(key string, lang string, unit string) (API, error) {
+func NewAPI(key string, lang string, unit string) (api API, err error) {
 	if !contains(types.Locales, lang) {
-		return API{}, errors.New(fmt.Sprintf("cannot use %s as lang", lang))
+		return api, errors.New(fmt.Sprintf("cannot use %s as lang", lang))
 	}
 	if !contains(types.Units, unit) {
-		return API{}, errors.New(fmt.Sprintf("cannot use %s as unit", unit))
+		return api, errors.New(fmt.Sprintf("cannot use %s as unit", unit))
 	}
 
 	client := http.Client{
 		Timeout: time.Second * 4,
 	}
 
-	return API{
+	api = API{
 		client: client,
 		key: key,
 		lang: lang,
 		unit: unit,
-	}, nil
+	}
+
+	return
 }
 
 // Gets forecasts for a specific location
@@ -78,56 +80,55 @@ func (api API) Forecast(location string) (forecast types.Forecast, err error) {
 }
 
 // Gets data from the OpenWeatherMap API
-func (api API) getData(requestUrl string, location string) ([]byte, error) {
+func (api API) getData(requestUrl string, location string) (data []byte, err error) {
 	request, err := api.encodeRequest(requestUrl, location)
 	if err != nil {
-		return []byte{}, err
+		return
 	}
 
 	response, err := api.makeRequest(request)
 	if err != nil {
-		return []byte{}, err
+		return
 	}
 
-  body, err := ioutil.ReadAll(response.Body)
+  data, err = ioutil.ReadAll(response.Body)
 	if err != nil {
-		return []byte{}, err
+		return
 	}
 
-  return body, nil
+  return data, nil
 }
 
 // Encodes a ready-to-use request structure from an URL and a location
-func (api API) encodeRequest(requestUrl string, location string) (*http.Request, error) {
+func (api API) encodeRequest(requestUrl string, location string) (request *http.Request, err error) {
 	params := url.Values{}
 	params.Add("APPID", api.key)
 	params.Add("q", location)
 	params.Add("units", api.unit)
 	params.Add("lang", api.lang)
 
-	req, err := http.NewRequest(http.MethodGet, fmt.Sprint(requestUrl, "?", params.Encode()), nil)
+	request, err = http.NewRequest(http.MethodGet, fmt.Sprint(requestUrl, "?", params.Encode()), nil)
 	if err != nil {
-		return &http.Request{}, err
+		return
 	}
+	request.Header.Add("User-Agent", "goweather")
 
-	req.Header.Add("User-Agent", "goweather")
-
-	return req, nil
+	return
 }
 
 // Makes a request to the OpenWeatherMap API from a request structure
-func (api API) makeRequest(request *http.Request) (*http.Response, error) {
-	response, err := api.client.Do(request)
+func (api API) makeRequest(request *http.Request) (response *http.Response, err error) {
+	response, err = api.client.Do(request)
   if err != nil {
-  	return &http.Response{}, err
+  	return
 	}
 
 	switch response.StatusCode {
 	case 401:
-		return &http.Response{}, errors.New("unauthorized API key")
+		return response, errors.New("unauthorized API key")
 	case 404:
-		return &http.Response{}, errors.New("unknown location")
+		return response, errors.New("unknown location")
 	}
 
-	return response, nil
+	return
 }

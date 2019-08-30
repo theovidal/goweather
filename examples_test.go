@@ -5,6 +5,7 @@ import (
 	"time"
 )
 
+// Example of fetching current weather
 func ExampleAPI_Current() {
 	api, err := NewAPI("", "en", "metric")
 	if err != nil {
@@ -21,6 +22,7 @@ func ExampleAPI_Current() {
 	}
 }
 
+// Example of fetching forecast
 func ExampleAPI_Forecast() {
 	api, err := NewAPI("", "en", "metric")
 	if err != nil {

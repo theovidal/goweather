@@ -29,9 +29,9 @@ type WeatherConditions struct {
 	// Humidity at the location (percentage)
 	Humidity           float64
 
-	// Level of clouds (percentage)
+	// CLouds level (percentage)
 	Clouds             float64
-	// Speed of the wind
+	// Wind speed
 	WindSpeed          float64
 }
 

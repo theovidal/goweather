@@ -6,16 +6,15 @@ import "encoding/json"
 type Current struct {
 	// The city where the weather applies
 	City       City
-
 	// The actual weather conditions at the moment
 	Conditions WeatherConditions
 }
 
 // Unmarshal the JSON data returned from the API into the structure
-func (current *Current) UnmarshalJSON(raw []byte) error {
+func (current *Current) UnmarshalJSON(raw []byte) (err error) {
  	var data map[string]interface{}
- 	if err := json.Unmarshal(raw, &data); err != nil {
- 		return err
+ 	if err = json.Unmarshal(raw, &data); err != nil {
+ 		return
  	}
 
  	coords := data["coord"].(map[string]interface{})
@@ -33,5 +32,5 @@ func (current *Current) UnmarshalJSON(raw []byte) error {
  	}
   current.Conditions = ParseWeatherConditions(data)
 
- 	return nil
+ 	return
 }
