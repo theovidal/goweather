@@ -12,7 +12,7 @@ import (
 	"github.com/exybore/goweather/types"
 )
 
-// The main API
+// API is the main piece of the library : it centralizes requests made to OpenWeatherMap and parameters.
 type API struct {
 	// The HTTP client to use to make requests
 	client http.Client
@@ -27,13 +27,13 @@ type API struct {
 	unit string
 }
 
-// Creates a new weather API structure
+// NewAPI creates a new weather API structure
 func NewAPI(key string, lang string, unit string) (api API, err error) {
 	if !contains(types.Locales, lang) {
-		return api, errors.New(fmt.Sprintf("cannot use %s as lang", lang))
+		return api, fmt.Errorf("cannot use %s as lang", lang)
 	}
 	if !contains(types.Units, unit) {
-		return api, errors.New(fmt.Sprintf("cannot use %s as unit", unit))
+		return api, fmt.Errorf("cannot use %s as unit", unit)
 	}
 
 	client := http.Client{
@@ -50,7 +50,7 @@ func NewAPI(key string, lang string, unit string) (api API, err error) {
 	return
 }
 
-// Gets forecasts for a specific location
+// Current gets current weather information for a specific location
 func (api API) Current(location string) (current types.Current, err error) {
 	result, err := api.getData(types.Endpoints["current"], location)
 	if err != nil {
@@ -65,6 +65,7 @@ func (api API) Current(location string) (current types.Current, err error) {
   return
 }
 
+// Forecast get forecasts for a specific location
 func (api API) Forecast(location string) (forecast types.Forecast, err error) {
 	result, err := api.getData(types.Endpoints["forecast"], location)
 	if err != nil {
@@ -80,8 +81,8 @@ func (api API) Forecast(location string) (forecast types.Forecast, err error) {
 }
 
 // Gets data from the OpenWeatherMap API
-func (api API) getData(requestUrl string, location string) (data []byte, err error) {
-	request, err := api.encodeRequest(requestUrl, location)
+func (api API) getData(requestURL string, location string) (data []byte, err error) {
+	request, err := api.encodeRequest(requestURL, location)
 	if err != nil {
 		return
 	}
@@ -100,14 +101,14 @@ func (api API) getData(requestUrl string, location string) (data []byte, err err
 }
 
 // Encodes a ready-to-use request structure from an URL and a location
-func (api API) encodeRequest(requestUrl string, location string) (request *http.Request, err error) {
+func (api API) encodeRequest(requestURL string, location string) (request *http.Request, err error) {
 	params := url.Values{}
 	params.Add("APPID", api.key)
 	params.Add("q", location)
 	params.Add("units", api.unit)
 	params.Add("lang", api.lang)
 
-	request, err = http.NewRequest(http.MethodGet, fmt.Sprint(requestUrl, "?", params.Encode()), nil)
+	request, err = http.NewRequest(http.MethodGet, fmt.Sprint(requestURL, "?", params.Encode()), nil)
 	if err != nil {
 		return
 	}

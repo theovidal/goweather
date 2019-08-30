@@ -1,6 +1,6 @@
 # goweather
 
-### 🌦 Easily fetch weather information using Go and the OpenWeatherMap API
+**🌦 Easily fetch weather information using Go and the OpenWeatherMap API.**
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/4be91f3c0fae4c02ade3d0e96c5d6149)](https://app.codacy.com/app/exybore/goweather?utm_source=github.com&utm_medium=referral&utm_content=exybore/goweather&utm_campaign=Badge_Grade_Dashboard)
 [![godoc documentation](https://godoc.org/github.com/exybore/goweather?status.svg)](https://godoc.org/github.com/exybore/goweather)

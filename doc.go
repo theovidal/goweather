@@ -1,4 +1,4 @@
-// Easily fetch weather information using Go and the OpenWeatherMap API
+// Package goweather lets anybody easily fetch weather information using the OpenWeatherMap API
 //
 // Before playing around with the library, get an API key at https://openweathermap.org.
 //

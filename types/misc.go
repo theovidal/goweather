@@ -1,6 +1,6 @@
 package types
 
-// Structure representing a real city and its data
+// City represents a real city and its data
 type City struct {
 	// The name of the city, e.g "Lyon"
 	Name        string
@@ -14,7 +14,7 @@ type City struct {
 	Coordinates Coordinates
 }
 
-// Structure representing geographic coordinates of a specific location
+// Coordinates represents geographic coordinates of a specific location
 type Coordinates struct {
   Longitude float64
   Latitude  float64

@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-// Structure representing weather conditions at a specific moment
+// WeatherConditions represents weather conditions at a specific moment
 type WeatherConditions struct {
 	// Timestamp at which the conditions occur
 	Timestamp          float64
@@ -14,7 +14,7 @@ type WeatherConditions struct {
 	// Full description of the conditions
 	Description        string
 	// URL to the PNG icon
-	IconUrl            string
+	IconURL            string
 	// Emoji associated to the condition
 	Emoji              rune
 
@@ -35,22 +35,22 @@ type WeatherConditions struct {
 	WindSpeed          float64
 }
 
-// Returns weather conditions parsed in a structure
+// ParseWeatherConditions returns weather conditions parsed in a structure
 func ParseWeatherConditions(data map[string]interface{}) WeatherConditions {
 	clouds := data["clouds"].(map[string]interface{})
 	main := data["main"].(map[string]interface{})
 	wind := data["wind"].(map[string]interface{})
 	misc := data["weather"].([]interface{})[0].(map[string]interface{})
 
-	iconUrl := fmt.Sprintf("https://openweathermap.org/img/w/%s.png", misc["icon"].(string))
+	iconURL := fmt.Sprintf("https://openweathermap.org/img/w/%s.png", misc["icon"].(string))
 	emoji := ConditionEmojis[strings.ReplaceAll(misc["icon"].(string), "n", "d")]
 
 	return WeatherConditions{
-		Timestamp:          data["dt"].(float64),
-		Name:               misc["main"].(string),
-		Description:        misc["description"].(string),
-		IconUrl:            iconUrl,
-		Emoji:              emoji,
+		Timestamp:   data["dt"].(float64),
+		Name:        misc["main"].(string),
+		Description: misc["description"].(string),
+		IconURL:     iconURL,
+		Emoji:       emoji,
 
 		Temperature:        main["temp"].(float64),
 		MinimumTemperature: main["temp_min"].(float64),

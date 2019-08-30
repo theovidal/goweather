@@ -2,7 +2,7 @@ package types
 
 import "encoding/json"
 
-// Structure representing weather forecast
+// Forecast represents weather forecast
 type Forecast struct {
 	// The city where the weather applies
 	City       City
@@ -10,7 +10,7 @@ type Forecast struct {
 	Conditions []WeatherConditions
 }
 
-// Unmarshal the JSON data returned from the API into the structure
+// UnmarshalJSON parses data returned from the API into the structure
 func (forecast *Forecast) UnmarshalJSON(raw []byte) (err error) {
  	var data map[string]interface{}
  	if err = json.Unmarshal(raw, &data); err != nil {

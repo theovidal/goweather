@@ -1,23 +1,23 @@
 package types
 
-// Address of the OpenWeatherMap API
-const ApiUrl = "https://api.openweathermap.org"
+// APIURL contains the address of the OpenWeatherMap API
+const APIURL = "https://api.openweathermap.org"
 
-// Available endpoints through the API
+// Endpoints contains available endpoints through the API
 var Endpoints = map[string]string{
-	"current":  ApiUrl + "/data/2.5/weather",
-	"forecast": ApiUrl + "/data/2.5/forecast",
+	"current":  APIURL + "/data/2.5/weather",
+	"forecast": APIURL + "/data/2.5/forecast",
 }
 
-// Accepted units in the API
+// Units contains accepted units in the API
 var Units = []string{"default", "metric", "imperial"}
 
-// Accepted locales in the API
+// Locales contains accepted locales in the API
 var Locales = []string{"ar", "bg", "ca", "cz", "de", "el", "fa", "fi", "fr", "gl", "hr", "hu",
 	"it", "ja", "kr", "la", "lt", "mk", "nl", "pl", "pt", "ro", "ru", "se", "sk", "sl", "es", "tr",
 	"ua", "vi", "zh_cn", "zh_tw", "en"}
 
-// OpenWeatherMap condition codes translated in emojis
+// ConditionEmojis contains OpenWeatherMap condition codes translated in emojis
 var ConditionEmojis = map[string]rune{
 	"01d": '☀',
 	"02d": '⛅',
