@@ -14,12 +14,14 @@
   - [Initializing the API](#initializing-the-api)
   - [Get current weather](#get-current-weather)
   - [Get forecast](#get-forecast)
+  - [More examples](#more-examples)
+- [💻 Developing](#-developing)
 - [📜 Credits](#-credits)
 - [🔐 License](#-license)
 
 ## 🔧 Installation
 
-First of all, make sure you have Go 1.12 installed on your system.
+First of all, make sure you have Go 1.12 or earlier installed on your system.
 
 Install the library using `go get`...
 
@@ -88,6 +90,21 @@ To get the forecast, use the `Forecast` method of the API :
 You can use any existing location in the parameter, but it's recommended to use the `City,Country code` format so the result is 100% accurate.
 
 The method returns a `types.Forecast` structure that you can explore [on GoDoc](https://godoc.org/github.com/exybore/goweather/types#Forecast)
+
+### More examples
+
+Check the [examples file](examples_test.go) for more examples of scripts using the goweather library.
+
+## 💻 Developing
+
+Thank you for being interested in goweather's development ! Please follow these steps :
+
+- [Fork the repository](https://github.com/exybore/goweather/fork) on your profile
+- Clone it on your computer and install the required dependencies using the `go get` command
+- Make your changes
+- Write tests in the `tests/` folder and execute them using the go test` command
+- Commit and push your work
+- Open a pull request and explain why you made these changes
 
 ## 📜 Credits
 
