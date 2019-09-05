@@ -8,31 +8,31 @@ import (
 // WeatherConditions represents weather conditions at a specific moment
 type WeatherConditions struct {
 	// Timestamp at which the conditions occur
-	Timestamp          float64
+	Timestamp float64
 	// Group of the conditions (Rain, snow, clouds...)
-	Name               string
+	Name string
 	// Full description of the conditions
-	Description        string
+	Description string
 	// URL to the PNG icon
-	IconURL            string
+	IconURL string
 	// Emoji associated to the condition
-	Emoji              rune
+	Emoji rune
 
 	// Temperature at the location
-	Temperature        float64
+	Temperature float64
 	// Minimum temperature that can be felt
 	MinimumTemperature float64
 	// Maximum temperature that can be felt
 	MaximumTemperature float64
 	// Pressure at the location
-	Pressure           float64
+	Pressure float64
 	// Humidity at the location (percentage)
-	Humidity           float64
+	Humidity float64
 
 	// CLouds level (percentage)
-	Clouds             float64
+	Clouds float64
 	// Wind speed
-	WindSpeed          float64
+	WindSpeed float64
 }
 
 // ParseWeatherConditions returns weather conditions parsed in a structure
@@ -58,7 +58,7 @@ func ParseWeatherConditions(data map[string]interface{}) WeatherConditions {
 		Pressure:           main["pressure"].(float64),
 		Humidity:           main["humidity"].(float64),
 
-		Clouds:             clouds["all"].(float64),
-		WindSpeed:          wind["speed"].(float64),
+		Clouds:    clouds["all"].(float64),
+		WindSpeed: wind["speed"].(float64),
 	}
 }

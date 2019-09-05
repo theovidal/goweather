@@ -42,9 +42,9 @@ func NewAPI(key string, lang string, unit string) (api API, err error) {
 
 	api = API{
 		client: client,
-		key: key,
-		lang: lang,
-		unit: unit,
+		key:    key,
+		lang:   lang,
+		unit:   unit,
 	}
 
 	return
@@ -57,12 +57,12 @@ func (api API) Current(location string) (current types.Current, err error) {
 		return
 	}
 
-  err = json.Unmarshal(result, &current)
-  if err != nil {
-  	return
+	err = json.Unmarshal(result, &current)
+	if err != nil {
+		return
 	}
 
-  return
+	return
 }
 
 // Forecast get forecasts for a specific location
@@ -72,12 +72,12 @@ func (api API) Forecast(location string) (forecast types.Forecast, err error) {
 		return
 	}
 
-  err = json.Unmarshal(result, &forecast)
-  if err != nil {
-  	return
+	err = json.Unmarshal(result, &forecast)
+	if err != nil {
+		return
 	}
 
-  return
+	return
 }
 
 // Gets data from the OpenWeatherMap API
@@ -92,12 +92,12 @@ func (api API) getData(requestURL string, location string) (data []byte, err err
 		return
 	}
 
-  data, err = ioutil.ReadAll(response.Body)
+	data, err = ioutil.ReadAll(response.Body)
 	if err != nil {
 		return
 	}
 
-  return data, nil
+	return data, nil
 }
 
 // Encodes a ready-to-use request structure from an URL and a location
@@ -120,8 +120,8 @@ func (api API) encodeRequest(requestURL string, location string) (request *http.
 // Makes a request to the OpenWeatherMap API from a request structure
 func (api API) makeRequest(request *http.Request) (response *http.Response, err error) {
 	response, err = api.client.Do(request)
-  if err != nil {
-  	return
+	if err != nil {
+		return
 	}
 
 	switch response.StatusCode {
