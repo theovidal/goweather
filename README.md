@@ -2,12 +2,13 @@
 
 **🌦 Easily fetch weather information using Go and the OpenWeatherMap API.**
 
-[![license](https://img.shields.io/github/license/exybore/goweather)](./LICENSE)
+[![License Badge](https://img.shields.io/github/license/exybore/goweather)](./LICENSE)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/4be91f3c0fae4c02ade3d0e96c5d6149)](https://app.codacy.com/app/exybore/goweather?utm_source=github.com&utm_medium=referral&utm_content=exybore/goweather&utm_campaign=Badge_Grade_Dashboard)
-[![godoc documentation](https://godoc.org/github.com/exybore/goweather?status.svg)](https://godoc.org/github.com/exybore/goweather)
-[![latest github version](https://img.shields.io/github/v/tag/exybore/goweather?sort=semver)](https://github.com/exybore/goweather/releases)
-[![code size on github](https://img.shields.io/github/languages/code-size/exybore/goweather)](https://github.com/exybore/goweather)
-[![open issues](https://img.shields.io/github/issues/exybore/goweather)](https://github.com/exybore/goweather/issues)
+[![Go Report Badge](https://goreportcard.com/badge/github.com/exybore/goweather)](https://goreportcard.com/report/github.com/exybore/goweather)
+[![Godoc Badge](https://godoc.org/github.com/exybore/goweather?status.svg)](https://godoc.org/github.com/exybore/goweather)
+[![Latest version Badge](https://img.shields.io/github/v/tag/exybore/goweather?sort=semver)](https://github.com/exybore/goweather/releases)
+[![Code size Badge](https://img.shields.io/github/languages/code-size/exybore/goweather)](https://github.com/exybore/goweather)
+[![Open issues Badge](https://img.shields.io/github/issues/exybore/goweather)](https://github.com/exybore/goweather/issues)
 
 - [🔧 Installation](#-installation)
 - [⌨ Usage](#-usage)
