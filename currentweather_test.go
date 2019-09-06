@@ -1,14 +1,13 @@
-package tests
+package goweather
 
 import (
-	"github.com/exybore/goweather"
 	"os"
 	"testing"
 )
 
 // Gets the current weather and displays some information about it
 func TestCurrent(t *testing.T) {
-	api, err := goweather.NewAPI(os.Getenv("WEATHER_API_KEY"), "fr", "metric")
+	api, err := NewAPI(os.Getenv("WEATHER_API_KEY"), "fr", "metric")
 	if err != nil {
 		t.Error("error:", err)
 		return
