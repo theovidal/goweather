@@ -2,6 +2,7 @@
 
 **🌦 Easily fetch weather information using Go and the OpenWeatherMap API.**
 
+[![codecov badge](https://codecov.io/gh/exybore/goweather/branch/master/graph/badge.svg)](https://codecov.io/gh/exybore/goweather)
 [![CircleCI Badge](https://circleci.com/gh/exybore/goweather.svg?style=svg)](https://circleci.com/gh/exybore/goweather)
 [![Travis Badge](https://travis-ci.org/exybore/goweather.svg?branch=master)](https://travis-ci.org/exybore/goweather)
 [![License Badge](https://img.shields.io/github/license/exybore/goweather)](./LICENSE)
@@ -105,7 +106,7 @@ Thank you for being interested in goweather's development ! Please follow these 
 - [Fork the repository](https://github.com/exybore/goweather/fork) on your profile
 - Clone it on your computer and install the required dependencies using the `go get` command
 - Make your changes
-- Write tests in the `tests/` folder and execute them using the go test` command. Your API key must be stored in a `WEATHER_API_KEY` environment variable
+- Write tests and execute them using the `go test` command. Your API key must be stored in a `WEATHER_API_KEY` environment variable
 - Commit and push your work
 - Open a pull request and explain why you made these changes
 
