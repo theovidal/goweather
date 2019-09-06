@@ -2,6 +2,8 @@
 
 **🌦 Easily fetch weather information using Go and the OpenWeatherMap API.**
 
+[![CircleCI Badge](https://circleci.com/gh/exybore/goweather.svg?style=svg)](https://circleci.com/gh/exybore/goweather)
+[![Travis Badge](https://travis-ci.org/exybore/goweather.svg?branch=master)](https://travis-ci.org/exybore/goweather)
 [![License Badge](https://img.shields.io/github/license/exybore/goweather)](./LICENSE)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/4be91f3c0fae4c02ade3d0e96c5d6149)](https://app.codacy.com/app/exybore/goweather?utm_source=github.com&utm_medium=referral&utm_content=exybore/goweather&utm_campaign=Badge_Grade_Dashboard)
 [![Go Report Badge](https://goreportcard.com/badge/github.com/exybore/goweather)](https://goreportcard.com/report/github.com/exybore/goweather)
