@@ -3,4 +3,7 @@ language: go
 go:
   "1.12"
 
-script: cd tests && go test -v ./...
+script: go test -v ./... -coverprofile=coverage.out
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
