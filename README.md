@@ -103,7 +103,7 @@ Thank you for being interested in goweather's development ! Please follow these 
 - [Fork the repository](https://github.com/exybore/goweather/fork) on your profile
 - Clone it on your computer and install the required dependencies using the `go get` command
 - Make your changes
-- Write tests in the `tests/` folder and execute them using the go test` command
+- Write tests in the `tests/` folder and execute them using the go test` command. Your API key must be stored in a `WEATHER_API_KEY` environment variable
 - Commit and push your work
 - Open a pull request and explain why you made these changes
 
