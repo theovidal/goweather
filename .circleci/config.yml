@@ -1,0 +1,21 @@
+# Golang CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-go/ for more details
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/golang:1.12
+        environment:
+          TEST_RESULTS: /tmp/test-results
+
+    working_directory: /go/src/github.com/exybore/goweather
+    steps:
+      - checkout
+      - run: mkdir -p $TEST_RESULTS
+
+      - run: go get -v -t -d ./...
+      - run: cd tests && go test -v ./...
+
+      - store_test_results:
+        path: /tmp/test-results
