@@ -2,16 +2,16 @@
 
 **🌦 Easily fetch weather information using Go and the OpenWeatherMap API.**
 
-[![codecov badge](https://codecov.io/gh/exybore/goweather/branch/master/graph/badge.svg)](https://codecov.io/gh/exybore/goweather)
-[![CircleCI Badge](https://circleci.com/gh/exybore/goweather.svg?style=svg)](https://circleci.com/gh/exybore/goweather)
-[![Travis Badge](https://travis-ci.org/exybore/goweather.svg?branch=master)](https://travis-ci.org/exybore/goweather)
-[![License Badge](https://img.shields.io/github/license/exybore/goweather)](./LICENSE)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4be91f3c0fae4c02ade3d0e96c5d6149)](https://app.codacy.com/app/exybore/goweather?utm_source=github.com&utm_medium=referral&utm_content=exybore/goweather&utm_campaign=Badge_Grade_Dashboard)
-[![Go Report Badge](https://goreportcard.com/badge/github.com/exybore/goweather)](https://goreportcard.com/report/github.com/exybore/goweather)
-[![Godoc Badge](https://godoc.org/github.com/exybore/goweather?status.svg)](https://godoc.org/github.com/exybore/goweather)
-[![Latest version Badge](https://img.shields.io/github/v/tag/exybore/goweather?sort=semver)](https://github.com/exybore/goweather/releases)
-[![Code size Badge](https://img.shields.io/github/languages/code-size/exybore/goweather)](https://github.com/exybore/goweather)
-[![Open issues Badge](https://img.shields.io/github/issues/exybore/goweather)](https://github.com/exybore/goweather/issues)
+[![codecov badge](https://codecov.io/gh/theovidal/goweather/branch/master/graph/badge.svg)](https://codecov.io/gh/theovidal/goweather)
+[![CircleCI Badge](https://circleci.com/gh/theovidal/goweather.svg?style=svg)](https://circleci.com/gh/theovidal/goweather)
+[![Travis Badge](https://travis-ci.org/theovidal/goweather.svg?branch=master)](https://travis-ci.org/theovidal/goweather)
+[![License Badge](https://img.shields.io/github/license/theovidal/goweather)](./LICENSE)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4be91f3c0fae4c02ade3d0e96c5d6149)](https://app.codacy.com/app/theovidal/goweather?utm_source=github.com&utm_medium=referral&utm_content=theovidal/goweather&utm_campaign=Badge_Grade_Dashboard)
+[![Go Report Badge](https://goreportcard.com/badge/github.com/theovidal/goweather)](https://goreportcard.com/report/github.com/theovidal/goweather)
+[![Godoc Badge](https://godoc.org/github.com/theovidal/goweather?status.svg)](https://godoc.org/github.com/theovidal/goweather)
+[![Latest version Badge](https://img.shields.io/github/v/tag/exybore/goweather?sort=semver)](https://github.com/theovidal/goweather/releases)
+[![Code size Badge](https://img.shields.io/github/languages/code-size/theovidal/goweather)](https://github.com/theovidal/goweather)
+[![Open issues Badge](https://img.shields.io/github/issues/theovidal/goweather)](https://github.com/theovidal/goweather/issues)
 
 - [🔧 Installation](#-installation)
 - [⌨ Usage](#-usage)
@@ -30,7 +30,7 @@ First of all, make sure you have Go 1.12 or earlier installed on your system.
 Install the library using `go get`...
 
 ```bash
-go get github.com/exybore/goweather
+go get github.com/theovidal/goweather
 ```
 
 ... or use whatever dependency manager you like! Then, you can start writing your code !
@@ -46,7 +46,7 @@ After this step, you're ready to initialize the API using the `goweather.NewAPI`
 ```go
 package main
 
-import "github.com/exybore/goweather"
+import "github.com/theovidal/goweather"
 
 func main() {
   api, err := goweather.NewAPI("ez5e4fz44e84fg89ze8", "en", "metric")
@@ -113,28 +113,8 @@ Thank you for being interested in goweather's development ! Please follow these 
 ## 📜 Credits
 
 - Service : [OpenWeatherMap](https://openweathermap.org)
-- Maintainer : [Exybore](https://github.com/exybore)
+- Maintainer : [Théo Vidal](https://github.com/theovidal)
 
 ## 🔐 License
 
-MIT License
-
-Copyright (c) 2019 Exybore
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+[MIT License](./LICENSE)

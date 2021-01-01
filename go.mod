@@ -1,3 +1,3 @@
-module github.com/exybore/goweather
+module github.com/theovidal/goweather
 
 go 1.12
